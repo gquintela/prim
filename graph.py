@@ -9,11 +9,21 @@ class Graph:
             output.append(vertex)
         return output
 
+
     def get_neighbours(self, v):
+        """
+        :param v: vertex
+        :return: list of neighbours with their weight. e.g.: ['v', 1]
+        """
         list = []
         for neighbour in self.adjacency_list[v]:
             list.append(neighbour)
         return list
+
+    def get_weight(self, u, v):
+        for vertex in self.get_neighbours(u):
+            if v == vertex[0]:
+                return vertex[1]
 
     def print_vertices(self):
         print ("Vertices:")
